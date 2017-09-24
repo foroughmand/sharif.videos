@@ -1,0 +1,14 @@
+{% extends "videos/template.html" %}
+
+{% block content %}
+<section class="thining">
+	{% for c in courses %}
+	<span class="tile">
+		{{ c }}
+		<a href="{% url 'videos:course' c.id %}"><img src="{{ c.image_url }}" /></a>	
+		<a href="{% url 'videos:course' c.id %}"><h2>{{ c.title }} </h2></a>
+		<h3>{{ c.instructor.family }} {{ c.program.title }}</h3>
+	</span>
+	{% endfor %}
+</section>
+{% endblock %}

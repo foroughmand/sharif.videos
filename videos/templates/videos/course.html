@@ -1,0 +1,73 @@
+{% extends "videos/template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<section class="thining" id="coursesbar">
+	 <aside id="courses_right">
+	 	<div id="course_details">
+	 		<h2>مشخصات درس</h2>
+	 		ترم ارائه : 
+			{{ course.program.title }}
+	 		<br />
+	 		مقطع :
+			{{ course.level }}
+	 		<br />
+	 		<!--زمینه (ها)ی درس :-->
+	 		
+	 	</div>
+	 	<hr/>
+	 	<div id="course_teacher">
+	 		<h2>استاد درس</h2>
+	 		<img src="{{ course.instructor.photo_url }}" id="course_teacher_avatar">
+	 		<div id="course_teacher_details">
+				{{ course.instructor.name }} {{ course.instructor.family }}
+	 		</div>
+	 	</div>
+	 </aside>
+	 <section id="courses_left">
+	 	<div id="course_bg" style="background-image: url({{ course.bg_image_url }});">
+	 		<h1>
+				{{ course.title }}
+			</h1>
+	 	</div>
+	 	<div id="course_content">
+	 		<!--<p>توضیحات درس</p>--> 
+	 		<h1>محتوای جلسات و ویدئوها</h1>
+	 		<table id="course_sessions_table">
+	 			<thead>
+	 				<tr>
+	 					<td>شماره</td>
+	 					<td>بخش</td>
+	 					<td>ویدئوی جلسه</td>
+	 					<td>جزوه ی درس</td>
+	 				</tr>
+	 			</thead>
+	 			<tbody>
+					{% for m in course.coursematerial_set.all %}
+						<tr>
+						<td>{{ m.name }}</td>
+						<td></td>
+						<td>
+							{% if m.video_name %}
+								<a href='{{ m.video_url }}'>{{ m.video_name }}</a>
+							{% else %}
+								-
+							{% endif %}
+						</td>
+						<td>
+							{% if m.handout_name %}
+								<a href='{{ m.handout_url }}'>{{ m.handout_name }}</a>
+							{% else %}
+								-
+							{% endif %}
+						</td>
+					{% endfor %}
+	 			</tbody>
+	 		</table>
+	 		<?php
+			}
+	 		?>
+	 	</div>
+	 </section>
+</section>
+{% endblock %}

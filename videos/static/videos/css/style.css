@@ -1,0 +1,376 @@
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
+@font-face {
+  font-family: 'BNazanin';
+  src: url('../fonts/BNazanin.eot?#') format('eot'),  /* IE6–8 */
+       url('../fonts/BNazanin.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../fonts/BNazanin.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+@font-face {
+  font-family: 'BYekan';
+  src: url('../fonts/BYekan.eot?#') format('eot'),  /* IE6–8 */
+       url('../fonts/BYekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../fonts/BYekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+/*
+ * To get these elements to work properly in older browsers, set the display property to block in your style sheet
+ * (this causes older browsers to render these elements correctly)
+ */
+header, section, footer, aside, nav, main, article, figure
+{ 
+display: block; 
+}
+* {
+	font-family: "BNazanin", tahoma;
+}
+html {
+	height: 100%;
+} 
+body {
+	height: 100%;
+	direction: rtl;
+	background-color: #F9F9F9;
+	font-family: "BNazanin", tahoma;
+	line-height: 25px;
+}
+header {
+	font-family: "BYekan", tahoma;
+}
+tr:nth-child(even) {background: #F0F0F0}
+hr{
+	border: 0px;
+	height: 1px;
+	background: #BDBDBD;
+}
+a {
+	text-decoration: none;
+	color: #b30838;
+}
+a:hover {
+	text-decoration: underline;
+}
+body>header {
+	width: 100%;
+	background-color: #F0F0F0;
+	text-align: left;	
+	position: fixed;
+	top: 0px;
+	z-index: 20;
+}
+body>section {
+	margin-top: 90px;
+	min-height: 100%;
+  	/* equal to footer height */
+  	margin-bottom: -250px; 
+}
+body>section:after {
+  content: "";
+  display: block;
+  height: 250px; 
+}
+.justified{
+	text-align: justify;
+}
+
+h1{
+	font-size: 22px;
+	font-family: "BYekan", tahoma;
+	margin-bottom: 5px;
+}
+h2{
+	font-size: 19px;
+	margin-bottom: 5px;
+}
+h3{
+	font-size: 16px;
+}
+p{
+	margin-bottom: 20px;
+}
+#searchbar {
+	height: 400px;
+	text-align : right;
+	width: 100%;
+	background: no-repeat fixed transparent;
+	background-color: #B30838;
+	-moz-box-shadow:    inset 0 0 100px 30px #000000;
+   	-webkit-box-shadow: inset 0 0 100px 30px #000000;
+   	box-shadow:         inset 0 0 100px 30px #000000;
+   	background-position: center 90px;
+  	background-size: auto 400px;
+}
+input {
+	border: 1px solid #BDBDBD;
+}
+select{
+	padding:5px;
+    margin: 0;
+    background: #F9F9F9;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+.thining{
+	width: 960px;
+	padding: 20px 0;
+	margin: 0 auto;
+	font-size: 0px;	
+}
+
+#logo {
+	
+}
+
+#mainmenu {
+	font-size: 16px;
+	float: right;
+}
+
+#mainmenu ul li {
+	display: inline-block;
+	padding: 12px 10px;
+}
+
+#mainmenu ul li a{
+	text-decoration: none;
+}
+
+body>footer{
+	width: 100%;
+	background-color: #F0F0F0;
+	height: 250px;
+}
+
+.tile {
+	vertical-align: top;
+	display: inline-block;
+	padding: 15px 30px 10px 0px;
+	width: 160px;
+}
+.tile img {
+	background-color: #f1f1f1;
+	width: 160px;
+	height: 90px; 
+}
+.tile h2 {
+	font-size: 17px;
+	padding: 3px 3px 0px 3px;
+	margin: 0px;
+	color: #000000;
+}
+.tile h3 {
+	float: left;
+	font-size: 14px;	
+	color: #888888;
+	padding: 0px 3px;
+	margin-top: -4px;	
+}
+
+#textbar span {
+	display: inline-block;
+	width: 33.3%;
+	font-size: 16px;
+	vertical-align: top;
+}
+#textbar span div {
+	margin-left: 20px;
+}
+#textbar span div.lastchild {
+	margin-left: 0px;
+}
+#textbar span div header{
+	padding-right: 0;	
+}
+
+footer ul #mainfooter {
+	width: 40%;
+	margin: 0;
+	padding: 0px; 
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: top;
+	line-height: 25px;
+} 
+footer ul #mainfooter p{
+	padding-left: 20px;
+	text-align: justify;
+}
+footer ul #mainfooter #copyrightchar {
+	font-size: 15px;
+}
+
+footer ul #sidefooter {
+	width: 20%;
+	margin: 0;
+	padding: 0px;
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: top;
+	line-height: 25px;
+} 
+
+footer ul #sidefooter div {
+	padding-left: 20px;
+}
+footer ul #sidefooter p {
+	text-align: justify;
+}  
+footer ul #sidefooter ul li {
+	font-size: 16px;
+}
+
+footer #newsletter #newsletter_email {
+	width: 150px;
+	text-align: left;
+}
+footer #newsletter #newsletter_submit {
+	width: 40px;
+	text-align: left;
+	margin-left: -15px;
+}
+
+#searchdiv {
+	display: inline-block;
+	margin: 20px auto;
+	padding: 10px;
+	max-width : 323px;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.6);
+	font-size: 16px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#searchdiv .searchbar_select_little {
+	margin: 5px 0px 5px 5px;
+	width: 80px;
+}
+#searchdiv .searchbar_select_medium {
+	margin: 5px 0px 5px 5px;
+	width: 140px;
+}
+#searchdiv .searchbar_select_large {
+	margin: 5px 0px 5px 5px;
+	width: 220px;
+}
+
+#searchdiv .searchbar_submit {
+	height: 32px;
+	width: 90px;
+	border: 0px;
+}
+#searchbar #searchbg_descrip {
+	float: left;
+	position: relative;
+	top: 320px;
+	text-align : left;
+	font-size: 18px;
+	padding: 5px 10px;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.6);
+	z-index: 10;
+}
+#searchbar {
+	color: #F9F9F9;
+	font-size: 16px;
+}
+#searchbar a {
+	color: #F9F9F9;
+	font-size: 18px;
+}
+
+
+.normalfont {
+	font-size: 16px;
+}
+
+
+/* ------------------------------- style of courses page --------------------------------------*/
+#coursesbar {
+	
+}
+#coursesbar>#courses_right {
+	display: inline-block;
+	background-color: #F0F0F0;
+	width: 290px;
+	font-size: 16px;
+	padding: 15px;
+	vertical-align: top;
+	min-height: 400px;
+	
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+#coursesbar>#courses_left {
+	display: inline-block;	
+	width: 620px;
+	font-size: 16px;
+	vertical-align: top;	
+}
+
+#coursesbar>#courses_left>#course_bg {
+	width: 100%;
+	overflow: hidden;
+	width: 620px;
+	height: 220px;
+	background-color: #B30838;
+	
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+}
+#coursesbar>#courses_left>#course_bg>h1 {
+	float: right;
+	position: relative;
+	top: 160px;
+	padding: 8px 10px;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.6);
+	color: #F9F9F9;
+}
+
+#coursesbar>#courses_right>div {
+	margin-bottom: 15px;
+}
+#coursesbar>#courses_right>#course_teacher>#course_teacher_avatar {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	vertical-align: top;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+}
+#coursesbar>#courses_right>#course_teacher>#course_teacher_details {
+	margin-right: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#coursesbar>#courses_left>#course_content {
+	padding: 20px;
+}
+#coursesbar>#courses_left>#course_content>#course_sessions_table {
+	margin: 20px auto; 
+}
+#coursesbar>#courses_left>#course_content>#course_sessions_table tr:nth-child(even) {
+	background-color: #F9F9F9;
+}
+#coursesbar>#courses_left>#course_content>#course_sessions_table tr:nth-child(odd) {
+	background-color: #F0F0F0;  
+}
+#coursesbar>#courses_left>#course_content>#course_sessions_table td{
+	margin : 10px 0;
+	padding: 5px 10px;
+	border: 1px solid #BDBDBD;
+}
+
+

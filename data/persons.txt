@@ -1,0 +1,18 @@
+alishahi	http://videos.math.sharif.ir/images/persons/alishahi.jpg	کسری	علیشاهیدک	تر
+eftekhari	http://videos.math.sharif.ir/images/persons/eftekhari.jpg	میثم	نصیری،	ایمان	افتخاریدک	تر
+foroughmand	http://videos.math.sharif.ir/images/persons/foroughmand.jpg	هادی	فروغمنددک	تر
+fotouhi	http://videos.math.sharif.ir/images/persons/fotouhi.jpg	عبدالحسین	عباسیان،	مرتضی	فتوحی،	محمدرضا	رزواندک	تر
+fotouhi	http://videos.math.sharif.ir/images/persons/fotouhi.jpg	مرتضی	فتوحیدک	تر
+jafari	http://videos.math.sharif.ir/images/persons/jafari.jpg	امیر	جعفریدک	تر
+khazaei	http://videos.math.sharif.ir/iamges/persons/khazaei.jpg	شهرام	خزائیدک	تر
+mahmoudian	http://videos.math.sharif.ir/images/persons/mahmoudian.jpg	سید	عبادالله	محمودیاندک	تر
+mirsadeghi	http://videos.math.sharif.ir/images/persons/mirsadeghi.jpg	میرامید	حاجی	میرصادقیدک	تر
+mirsadeghi	http://videos.math.sharif.ir/images/persons/mirsadeghi.jpg	میرامید	میرصادقیدک	تر
+moghadasi	http://videos.math.sharif.ir/images/persons/moghadasi.jpg	سید	رضا	مقدسیدک	تر
+nasiri	http://videos.math.sharif.ir/images/persons/nasiri.jpg	میرامید	حاجی	میرصادقی،	میثم	نصیریدک	تر
+rajabzade	http:/// حسام	الدین	رجب	زادهدک	تر
+rastegar	http://videos.math.sharif.ir/images/persons/rastegar.jpg	آرش	رستگاردک	تر
+shahshahani	http://videos.math.sharif.ir/images/persons/shahshahani.jpg	سیاوش	شهشهانیدک	تر
+sharifitabar	http://videos.math.sharif.ir/images/persons/sharifitabar.jpg	محسن	شریفی	تباردک	تر
+zangene	http:///	بیژن	ظهوری	زنگنهدک	تر
+zarei	http:///	علیرضا	زارعیدک	تر

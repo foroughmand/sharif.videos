@@ -1,0 +1,95 @@
+{% load staticfiles %}
+﻿<!DOCTYPE >
+<html>
+	<head>
+		<title>{{ page_title }}</title>
+		<link rel="stylesheet" href="{% static 'videos/css/style.css' %}?v=2" type="text/css" />
+		<script type="text/javascript" src="{% static 'videos/js/jquery.min.js' %}"></script>
+		<script type="text/javascript">
+$(function () {
+$('#newsletter').submit(function (e) {
+e.preventDefault();
+$.getJSON(
+this.action + "?callback=?",
+$(this).serialize(),
+function (data) {
+if (data.Status === 400) {
+alert("Error: " + data.Message);
+} else { // 200
+alert("Success: " + data.Message);
+}
+});
+});
+});
+</script>
+	</head>
+	<body>
+		<header>
+			<div class="thining">
+		 		<nav id="mainmenu">
+					<ul>
+						<li><a href="{% url 'videos:index' %}">صفحه اصلی</a></li>
+						<li><a href="{% url 'videos:search' %}">درس ها</a></li>
+						<li><a href="{% url 'videos:about' %}">درباره ما</a></li>
+						<li><a href="{% url 'videos:contact' %}">ارتباط با ما</a></li>
+					</ul>
+				</nav>
+				<a href="{% url 'videos:index' %}"><img id="logo" src="{% static 'videos/images/logo.png' %}" /></a>
+								
+			</div>
+		</header>
+		<section>
+{% block content %}
+{% endblock %}
+
+		</section>
+		<footer>
+			<ul class="thining">
+				<li id="mainfooter">
+					<p>
+						<a href="http://sharif.ir"><img src="{% static 'videos/images/sharifuni.png' %}" /></a>
+						<a href="http://math.sharif.ir"><img src="{% static 'videos/images/mathdept.png' %}" /></a>
+						<br />
+						تمام حقوق این سایت متعلق به دانشکده علوم ریاضی دانشگاه صنعتی شریف است و باز نشر و استفاده از محتوای آن تحت چهارچوب
+						<a href="{% url 'videos:terms' %}">قوانین و ضوابط ما</a>
+						بلا مانع است.<br />
+						<span id="copyrightchar">©</span> 1391 تا 1393
+					</p>
+				</li>
+				<li id="sidefooter">
+					<div>
+					<header>برخی صفحات سایت</header>
+					<hr>
+					<ul>
+						<li><a href="about">درباره ما</a></li>
+						
+						<li><a href="contact">تماس با ما</a></li>
+					</ul>
+					</div>
+				</li>
+				<li id="sidefooter">
+					<div>
+					<header>سایت های مرتبط</header>
+					<hr>
+					<ul>
+						<li><a href="http://shafahi.math.sharif.ir">مجله شفاهی</a></li>
+						<li><a href="http://sharifmathjournal.ir">مجله ریاضی شریف</a></li>
+						<li><a href="http://sharif.ir">دانشگاه صنعتی شریف</a></li>
+						<li><a href="http://math.sharif.ir">دانشکده علوم ریاضی شریف</a></li>
+						<li><a href="http://front.math.sharif.ir">همایش مرزهای علوم ریاضی</a></li>
+					</ul>
+					</div>
+				</li>
+				<li id="sidefooter">
+					<header>خبرنامه</header>
+					<hr>
+					<p>با راه اندازی بخش خبرنامه ایمیلهایی در مورد درسهای افزوده شده به علاقه مندان ارسال می شود.</p>
+					<!--<form action="saveemail.php" method="post" id="newsletter">
+						<input type="email" name="cm-aljhk-aljhk" id="aljhk-aljhk" placeholder="your email address"/>
+						<input type="submit" value="ارسال" />
+					</form>-->
+				</li>
+			<ul/>
+		</footer>
+	</body>
+</html>

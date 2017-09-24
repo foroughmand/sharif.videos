@@ -1,0 +1,236 @@
+{% extends "videos/template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<section id="searchbar" style="background-image: url({% static 'videos/images/backgrounds/searchbar-' %}{{ data.randomindex }}.jpg);">
+		<div class="thining">
+			<div id="searchbg_descrip">
+				<a href="{{ data.searchbg_link }}">{{ data.searchbg_name }}</a>
+			</div>
+			<div id="searchdiv">
+				<h1>در بین 40 درس موجود جستجو کنید.</h1>
+				<hr>
+		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+		<form action="{% url 'videos:search' %}" method="post">
+		{% csrf_token %}
+		<!--<form method="get" action="search.php">-->
+			<select class="searchbar_select_little" name="program_id"> این گزینه را به ترم تغییر دهیم و درس را به صورت یک صفر و یک که پاییز و فلان را می گوید و عدد سال کد کنیم
+				<option value="">سال - فصل</option>
+				{% for p in data.programs %}
+					<option value="{{ p.id }} ">{{ p.title }}</option>
+				{% endfor %}
+			</select>
+			<!--
+			<select class="searchbar_select_little" name="year"> این گزینه را به ترم تغییر دهیم و درس را به صورت یک صفر و یک که پاییز و فلان را می گوید و عدد سال کد کنیم
+				<option value="0">سال</option>
+				<option value="1386">1386</option>
+				<option value="1387">1387</option>
+				<option value="1388">1388</option>
+				<option value="1389">1389</option>
+				<option value="1390">1390</option>
+				<option value="1391">1391</option>
+				<option value="1392">1392</option>
+				<option value="1393">1393</option>
+				<option value="1394">1394</option>
+			</select>
+			<select class="searchbar_select_little" name="season"> این گزینه را به ترم تغییر دهیم و درس را به صورت یک صفر و یک که پاییز و فلان را می گوید و عدد سال کد کنیم
+				<option value="0">فصل</option>
+				<option value="fall">پاییز</option>
+				<option value="spring">بهار</option>
+			</select>
+			-->
+			<select class="searchbar_select_medium" name="instructor_id">
+				<option value="">استاد درس/ سخنران</option>
+				{% for p in data.instructors %}
+					<option value="{{ p.id }}">{{ p.initials }} {{ p.name }} {{p.family}}</option>
+				{% endfor %}
+				<!--
+				<option value="eftekhari">ایمان افتخاری</option>
+				<option value="jafari">امیر جعفری</option>
+				<option value="razvan">محمدرضا رزوان</option>
+				<option value="rastegar">آرش رستگار</option>
+				<option value="rajabzade">حسام الدین رجب زاده</option>
+				<option value="sharifitabar">محسن شریفی تبار</option>
+				<option value="shahshahani">سیاوش شهشهانی</option>
+				<option value="zangene">بیژن ظهوری زنگنه</option>
+				<option value="alishahi">کسری علیشاهی</option>
+				<option value="fotouhi">مرتضی فتوحی</option>
+				<option value="moghadasi">سید رضا مقدسی</option>
+				<option value="mahmoudian">سید عبادالله محمودیان</option>
+				<option value="mirsadeghi">میرامید حاجی میرصادقی</option>
+				<option value="nasiri">میثم نصیری</option>
+				-->
+			</select>
+			<br />
+			<select class="searchbar_select_large" name="category_id">
+				<option value="">زمینه ی درس یا سخنرانی</option>
+				{% for c in data.categories %}
+					<option value="{{ c.id }}">{{ c.title }}</option>
+				{% endfor %}
+				<!--
+				<option value="9">دروس سرویس</option>
+				<option value="1">آمار و احتمال</option>
+				<option value="2">آنالیز</option>
+				<option value="3">آنالیز عددی و بهینه سازی</option>
+				<option value="4">ترکیبیات</option>
+				<option value="5">جبر و نظریه اعداد</option>
+				<option value="6">معادلات دیفرانسیل و سیستم های دینامیکی</option>
+				<option value="7">منطق و نظریه مجموعه ها</option>
+				<option value="8">هندسه و توپولوژی</option>
+				-->
+			</select>
+			<input type="submit" value="جستجو" class="searchbar_submit"/>
+		</form>
+		</div>
+		</div>
+</section>
+
+
+<!-- TILE -->
+<section class="thining">
+	{% for c in data.current_course_list %}
+		<span class="tile">
+			<a href="{% url 'videos:course' c.id %}"><img src="{{ c.image_url }}" /></a>	
+			<a href="{% url 'videos:course' c.id %}"><h2>{{ c.title }} </h2></a>
+			<h3>{{ c.instructor.family }} {{ c.program.title }}</h3>
+		</span>
+	{% endfor %}
+	<!--
+	<span class="tile">
+		<a href="courses.php?course=general_math-fall94"><img src="http://videos.math.sharif.ir/images/thumbs/general_math-fall94.jpg" /></a>	
+		<a href="courses.php?course=general_math-fall94"><h2>ریاضی عمومی ۱</h2></a>
+		<h3>سیاوش شهشهانی، پاییز ۹۴</h3>
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=mathematical_analysis_1-fall89"><img src="images/thumbs/mathematical_analysis_1-fall89.jpg" /></a>	
+		<a href="courses.php?course=mathematical_analysis_1-fall89"><h2>آنالیز ریاضی 1</h2></a>
+		<h3>سیاوش شهشهانی، پاییز 89</h3>
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=elementary_functional_analysis-spring92"><img src="images/thumbs/elementary_functional_analysis-spring92.jpg" /></a>
+		<a href="courses.php?course=elementary_functional_analysis-spring92"><h2>آنالیز تابعی مقدماتی</h2></a>
+		<h3>بیژن ظهوری زنگنه، بهار 92</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=statistics-spring87"><img src="images/thumbs/statistics-spring87.jpg" /></a>
+		<a href="courses.php?course=statistics-spring87"><h2>آمار و کاربردهای آن</h2></a>
+		<h3>کسری علیشاهی، بهار 87</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=combinatorics-spring92"><img src="images/thumbs/combinatorics-spring92.jpg" /></a>
+		<a href="courses.php?course=combinatorics-spring92"><h2>ترکیبیات و کاربردهای آن</h2></a>
+		<h3>بهار 92</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=calculus_2-spring92"><img src="images/thumbs/calculus_2-spring92.jpg"  /></a>
+		<a href="courses.php?course=calculus_2-spring92"><h2>ریاضی عمومی 2</h2></a>
+		<h3>سید رضا مقدسی، بهار 92</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=differentiable_manifolds-spring91"><img src="images/thumbs/differentiable_manifolds-spring91.jpg" /></a>
+		<a href="courses.php?course=differentiable_manifolds-spring91"><h2>هندسه منیفلد</h2></a>
+		<h3>سیاوش شهشهانی، بهار 91</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=algebraic_geometry_1-spring92"><img src="images/thumbs/algebraic_geometry_1-spring92.jpg" /></a>
+		<a href="courses.php?course=algebraic_geometry_1-spring92"><h2>هندسه جبری 1</h2></a>
+		<h3>امیر جعفری، بهار 92</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=algebraic_topology_1-spring92"><img src="images/thumbs/algebraic_topology_1-spring92.jpg" /></a>
+		<a href="courses.php?course=algebraic_topology_1-spring92"><h2>توپولوژی جبری 1</h2></a>
+		<h3>آرش رستگار، بهار 92</h3>	
+	</span>
+	<span class="tile">
+		<a href="courses.php?course=elementary_ordinary_differential_equations-fall91"><img src="images/thumbs/elementary_ordinary_differential_equations-fall91.jpg" />
+		<a href="courses.php?course=elementary_ordinary_differential_equations-fall91"><h2>نظریه ی مقدماتی معادلات دیفرانسیل عادی</h2></a>
+		<h3>مرتضی فتوحی، بهار 92</h3>	
+	</span>
+	-->
+</section>
+
+
+<!-- TEXT -->
+<section class="thining" id="textbar">
+	<span>
+		<div>
+			<header>معرفی اجمالی</header>
+			<hr>
+			<section>
+				<p class="justified">
+					برنامه ی فیلم برداری از کلاسها و سمینارها سالهاست که در دانشکده ی ریاضی با پیگیری دانشکده، همکاری اساتید و
+					با کمک برخی دانشجویان علاقه مند برگزار شده و تداوم یافته است. در نتیجه ی این فعالیت مقدار قابل توجهی محتوا در قالب
+					ویدیو در زمینه ی ریاضیات فراهم گردید که با راه اندازی سایت ویدئوهای دانشکده علوم ریاضی در سال 91 مقداری
+					از این محتوا از طریق وب در دسترس علاقه مندان قرار گرفت.<br />
+					این سایت که هم اکنون در دسترس همگان قرار گرفته است یک درس افزار آزاد است که به علاقه مندان اجازه می دهد علاوه
+					بر محتوای ویدئویی موجود از دروس و سمینارها از سایر محتوا اعم از متن و تصویر و غیره نیز بهره مند گردند.
+				</p>
+			</section>
+		</div>
+	</span>
+	{% for p in data.programs %}
+		{% if p.is_current %}
+	<span>
+		<div>
+			<header>{{ p.title }}</header>
+			<!--<header>درس‌های ترم گذشته (پاییز ۹۴-۹۵)</header>-->
+			{% for c in p.course_set.all %}
+				<hr>
+				<a href="{% url 'videos:course' c.id %}">{{ c.title }} ({{c.instructor.name }} {{ c.instructor.family }})</a>
+			{% endfor %}
+			<!--
+			<hr>
+			<a href="courses.php?course=general_math-fall94">ریاضی عمومی ۱ (دکتر شهشهانی)</a>
+			<hr>
+			<a href="courses.php?course=Real_Analysis-fall94">آنالیز حقیقی (دکتر زنگنه)</a>
+			<hr>
+			<a href="courses.php?course=Fourier_Analysis_fall94">آنالیز فوریه (دکتر علیشاهی)</a>
+			<hr>
+			<a href="courses.php?course=number_theory_fall94">مباحثی در نظریه‌ی اعداد (دکتر جعفری)</a>
+			<hr>
+			<a href="courses.php?course=advanced_probability_theory_fall94">مباحثی در احتمال(دکتر علیشاهی)</a>
+			<hr>
+			<a href="courses.php?course=combinatorial_analysis-fall94">آنالیز ترکیبی ۲ (دکتر فروغمند)</a>
+			<hr>
+			<a href="courses.php?course=statistics_theory-fall94">نظریه پیشرفته آمار (دکتر میرصادقی)</a>
+			<hr>
+			<a href="courses.php?course=probability-fall94">احتمال و کاربرد آن (شریفی‌تبار)</a>
+			<hr>
+			<a href="courses.php?course=cryptography-fall94">رمزنگاری (دکتر خزائی)</a>
+			<hr>
+			<a href="courses.php?course=DS-fall94">ساختمان داده (دکتر زارعی)</a>
+			<hr>
+			-->
+			<section></section>
+		</div>
+	</span>
+		{% endif %}
+	{% endfor %}
+	<!--
+	<span>
+		<div>
+			<header>درس های ترم کنونی (بهار ۹۴-۹۵)</header>
+			<hr>
+			<a href="courses.php?course=topology-spring94">توپولوژی (دکتر شهشهانی)</a>
+			<hr>
+			<a href="courses.php?course=complex_functions-spring94">توابع مختلط (دکتر علیشاهی)</a>
+			<hr>
+			<a href="courses.php?course=stochastic_processes-spring94">فرآیندهای تصادفی (دکتر علیشاهی)</a>
+			<hr>
+			<a href="courses.php?course=machine_learning-spring94">نظریه یادگیری ماشین (دکتر مقدسی)</a>
+			<hr>
+			<a href="courses.php?course=theory_of_computation-spring94">نظریه محاسبه (دکتر فروغمند)</a>
+			<hr>
+			<a href="courses.php?course=compiler-spring94">کامپایلر (دکتر فروغمند)</a>
+			<hr>
+			<a href="courses.php?course=numerical_analysis_2-spring94">آنالیز عددی ۲ (شریفی‌تبار)</a>
+			<hr>
+			<section></section>
+		</div>
+	</span>
+	-->
+</section>
+
+
+{% endblock %}
